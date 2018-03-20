@@ -29,3 +29,20 @@
      ViewHolder(View itemView) {
         ViewInjector.inject(this, itemView);
      }
+     
+### 引入
+
+projcet 的build.gradle 中添加
+
+    allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+moudle 的build.gradle 中添加
+
+    dependencies {
+	        compile 'com.github.T-zhangshuo:ZViewInject:v1.0'
+	}
