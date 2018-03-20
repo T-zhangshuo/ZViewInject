@@ -1,6 +1,4 @@
 apply plugin: 'java-library'
-apply plugin: 'com.github.dcendents.android-maven'
-group="com.github.T-zhangshuo"
 dependencies {
     implementation project(':zanno')
     compile 'com.squareup:javapoet:1.10.0'
