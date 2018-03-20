@@ -46,7 +46,7 @@ projcet 的build.gradle 中添加
 moudle 的build.gradle 中添加
 ```java
     dependencies {
-	       compile 'com.github.T-zhangshuo.ZViewInject:zapi:0.1'
-    	       annotationProcessor 'com.github.T-zhangshuo.ZViewInject:zcompiler:0.1'
+	       compile 'com.github.T-zhangshuo.ZViewInject:zapi:2.0'
+    	       annotationProcessor 'com.github.T-zhangshuo.ZViewInject:zcompiler:2.0'
 	}
 ```
