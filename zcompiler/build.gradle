@@ -1,0 +1,10 @@
+apply plugin: 'java-library'
+
+dependencies {
+    compile project(':zanno')
+    compile 'com.squareup:javapoet:1.10.0'
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
