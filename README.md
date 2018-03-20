@@ -1,9 +1,9 @@
 # ZViewInject
-编译时注解库
+编译时注解库,替换findViewById,和setOnClicklistener
 ## 使用示例
 ### 在Activity中。
     
-    @ViewInject( value = R.id.main_txt,clickEvent = "addList")//无法传参，写方法名
+    @ViewInject( value = R.id.main_txt,clickEvent = "addList")//暂无法传参，此处写方法名
     TextView textView;
 
     @ViewInject(R.id.main_listview)
