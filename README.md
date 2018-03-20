@@ -1,7 +1,7 @@
 # ZViewInject
 编译时注解库
-##使用示例
-###在Activity中。
+## 使用示例
+### 在Activity中。
     
     @ViewInject( value = R.id.main_txt,clickEvent = "addList")//无法传参，写方法名
     TextView textView;
@@ -22,7 +22,7 @@
     }
 
 
-###在viewHolder，或 Fragment中
+### 在viewHolder，或 Fragment中
 
     @ViewInject(R.id.item_txt)
      TextView textView;
