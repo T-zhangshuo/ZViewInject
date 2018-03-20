@@ -24,5 +24,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':zanno')
+    api project(':zanno')
 }
