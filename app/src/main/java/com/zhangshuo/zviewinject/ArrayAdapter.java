@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.zhangshuo.annotation.ViewInject;
-import com.zhangshuo.zapi.ViewInjector;
+import com.zhangshuo.zvanno.ViewInject;
+import com.zhangshuo.zvapi.ViewInjector;
 
 import java.util.ArrayList;
 import java.util.List;

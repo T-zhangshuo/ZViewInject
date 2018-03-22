@@ -1,7 +1,7 @@
-package com.zhangshuo.zcompiler;
+package com.zhangshuo.zvcompiler;
 
 import com.google.auto.service.AutoService;
-import com.zhangshuo.annotation.ViewInject;
+import com.zhangshuo.zvanno.ViewInject;
 
 import java.io.IOException;
 import java.util.Collections;

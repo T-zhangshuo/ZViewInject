@@ -1,4 +1,4 @@
-package com.zhangshuo.zcompiler;
+package com.zhangshuo.zvcompiler;
 
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
@@ -49,9 +49,9 @@ final class ProxyInfo {
 
     void generateJavaCode(ProcessingEnvironment processingEnv) throws IOException {
         final ClassName FINDER_STRATEGY =
-                ClassName.get("com.zhangshuo.zapi", "FindStrategy");
+                ClassName.get("com.zhangshuo.zvapi", "FindStrategy");
         final ClassName ABSTRACT_INJECT =
-                ClassName.get("com.zhangshuo.zapi", "AbstractInjector");
+                ClassName.get("com.zhangshuo.zvapi", "AbstractInjector");
         final TypeName T = TypeVariableName.get("T");
 
         //生成方法

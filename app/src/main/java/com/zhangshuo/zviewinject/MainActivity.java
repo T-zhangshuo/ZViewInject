@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.zhangshuo.annotation.ViewInject;
-import com.zhangshuo.zapi.ViewInjector;
+import com.zhangshuo.zvanno.ViewInject;
+import com.zhangshuo.zvapi.ViewInjector;
 
 import java.util.ArrayList;
 import java.util.List;
