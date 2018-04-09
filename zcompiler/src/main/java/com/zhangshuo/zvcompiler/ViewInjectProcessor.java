@@ -63,28 +63,28 @@ public class ViewInjectProcessor extends AbstractProcessor {
             String packageName = packageElement.getQualifiedName().toString();
             String classname = getClassNameFromType(typeElement, packageName);
 
-             /*对应View信息*/
+            /*对应View信息*/
             int id = variableElement.getAnnotation(ViewInject.class).value();
-            String clickEvnent=variableElement.getAnnotation(ViewInject.class).clickEvent();
+            String clickEvnent = variableElement.getAnnotation(ViewInject.class).clickEvent();
             String fieldName = variableElement.getSimpleName().toString();
             String fieldType = variableElement.asType().toString();
 
             //打印日志
-            printNote("annotated field : fieldName =" + variableElement.getSimpleName().toString()
-                    + ", id =" + id + " , clickEvent = " + clickEvnent + " , fileType = " + fieldType);
-
+            String logmsg="annotated pkgName" + packageName + " field : fieldName =" + variableElement.getSimpleName().toString()
+                    + ", id =" + id + " , clickEvent = " + clickEvnent + " , fileType = " + fieldType;
+            printNote(logmsg);
             //寻找已经存在的类型
-            ProxyInfo proxyInfo=proxyInfoMap.get(kClassName);
+            ProxyInfo proxyInfo = proxyInfoMap.get(kClassName);
             //如果是新类型
             if (proxyInfo == null) {
-                proxyInfo=new ProxyInfo(packageName,classname);
-                proxyInfoMap.put(kClassName,proxyInfo);
+                proxyInfo = new ProxyInfo(packageName, classname);
+                proxyInfoMap.put(kClassName, proxyInfo);
             }
-            proxyInfo.putViewInfo(id,new ViewInfo(id,fieldName,clickEvnent));
+            proxyInfo.putViewInfo(id, new ViewInfo(id, fieldName, clickEvnent));
         }
         //生成对应的代理类
-        for(Map.Entry<String,ProxyInfo> proxyInfoEntry:proxyInfoMap.entrySet()){
-            ProxyInfo info=proxyInfoEntry.getValue();
+        for (Map.Entry<String, ProxyInfo> proxyInfoEntry : proxyInfoMap.entrySet()) {
+            ProxyInfo info = proxyInfoEntry.getValue();
             try {
                 info.generateJavaCode(processingEnv);
             } catch (IOException e) {

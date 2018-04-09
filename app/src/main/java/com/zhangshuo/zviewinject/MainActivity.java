@@ -1,7 +1,7 @@
 package com.zhangshuo.zviewinject;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -11,7 +11,7 @@ import com.zhangshuo.zvapi.ViewInjector;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
     @ViewInject( value = R.id.main_txt,clickEvent = "addList")
     TextView textView;
 

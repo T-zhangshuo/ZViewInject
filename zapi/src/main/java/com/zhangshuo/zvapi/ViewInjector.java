@@ -1,6 +1,7 @@
 package com.zhangshuo.zvapi;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 
 import java.util.LinkedHashMap;
@@ -40,17 +41,13 @@ public final class ViewInjector {
         AbstractInjector<Object> injector = INJECTORS.get(clazz);
         if (injector == null) {
             try {
-                /*生成代理类对象*/
+                /*生成代理类对象 可能不存在该代理类*/
                 Class<?> injectorClazz = Class.forName(clazz.getName()
                         + "$$Proxy");
                 injector = (AbstractInjector<Object>) injectorClazz.newInstance();
                 INJECTORS.put(clazz, injector);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                Log.d("INJECT",e.getCause().toString());
             }
         }
         return injector;
