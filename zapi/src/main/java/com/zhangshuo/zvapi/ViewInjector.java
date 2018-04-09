@@ -12,16 +12,17 @@ import java.util.Map;
  */
 
 public final class ViewInjector {
-    private ViewInjector(){
+    private ViewInjector() {
         throw new AssertionError("no instance!");
     }
 
-    private static final Map<Class<?>,AbstractInjector<Object>> INJECTORS=new LinkedHashMap<>();
+    private static final Map<Class<?>, AbstractInjector<Object>> INJECTORS = new LinkedHashMap<>();
 
     //注入Activity
-    public static void inject(Activity activity){
-        AbstractInjector<Object> injector=findInjector(activity);
-        injector.inject(FindStrategy.ACTIVITY,activity,activity);
+    public static void inject(Activity activity) {
+        AbstractInjector<Object> injector = findInjector(activity);
+        if (injector != null)
+            injector.inject(FindStrategy.ACTIVITY, activity, activity);
     }
 
     /**
@@ -32,7 +33,8 @@ public final class ViewInjector {
      */
     public static void inject(Object target, View view) {
         AbstractInjector<Object> injector = findInjector(target);
-        injector.inject(FindStrategy.VIEW, target, view);
+        if (injector != null)
+            injector.inject(FindStrategy.VIEW, target, view);
     }
 
     @SuppressWarnings("unchecked")
@@ -47,7 +49,7 @@ public final class ViewInjector {
                 injector = (AbstractInjector<Object>) injectorClazz.newInstance();
                 INJECTORS.put(clazz, injector);
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-                Log.d("INJECT",e.getCause().toString());
+                Log.d("INJECT", e.getCause().toString());
             }
         }
         return injector;
