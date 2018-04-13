@@ -22,7 +22,7 @@ final class ProxyInfo {
     private String targetClassName = "";//目标类名
     private String proxyClassName = "";//代理类名
 
-    private Map<Integer, ViewInfo> idViewMap = new LinkedHashMap<>();
+    private Map<String, ViewInfo> idViewMap = new LinkedHashMap<>();
 
     public ProxyInfo(String packageName, String targetClassName) {
         this.packageName = packageName;
@@ -36,7 +36,7 @@ final class ProxyInfo {
      * @param id       viewId
      * @param viewInfo viewInfo
      */
-    void putViewInfo(int id, ViewInfo viewInfo) {
+    void putViewInfo(String id, ViewInfo viewInfo) {
         idViewMap.put(id, viewInfo);
     }
 
@@ -63,10 +63,11 @@ final class ProxyInfo {
                 .addParameter(T, "target", Modifier.FINAL)
                 .addParameter(TypeName.OBJECT, "source",Modifier.FINAL);
 
-        for (Map.Entry<Integer, ViewInfo> viewInfoEntry : idViewMap.entrySet()) {
+        for (Map.Entry<String, ViewInfo> viewInfoEntry : idViewMap.entrySet()) {
             ViewInfo info = viewInfoEntry.getValue();
+
             builder.addStatement("target.$L = finder.findViewById(source,$L)",
-                    info.getName(), String.valueOf(info.getId()));
+                    info.getName(), info.getId());
             //如果是点击事件，则增加点击事件
             String clickEvnentName = info.getClickEventName();
             if ("".equals(clickEvnentName) || clickEvnentName.length() == 0) continue;

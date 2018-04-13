@@ -1,1 +1,1 @@
-include ':app', ':zapi', ':zanno', ':zcompiler'
+include ':app', ':zapi', ':zanno', ':zcompiler', ':othermodule', ':zgradle',":buildSrc"

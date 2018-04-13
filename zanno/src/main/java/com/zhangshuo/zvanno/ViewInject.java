@@ -9,7 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface ViewInject {
     int value();
-
     String clickEvent() default "" ;
-
 }

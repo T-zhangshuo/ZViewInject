@@ -5,21 +5,21 @@ package com.zhangshuo.zvcompiler;
  */
 
 final class ViewInfo {
-    private int id;
+    private String id;
     private String name;
     private String clickEventName;
 
-    public ViewInfo(int id, String name, String clickEventName) {
+    public ViewInfo(String id, String name, String clickEventName) {
         this.id = id;
         this.name = name;
         this.clickEventName = clickEventName;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

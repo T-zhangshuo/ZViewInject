@@ -1,0 +1,7 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+group='com.github.T-zhangshuo'
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
