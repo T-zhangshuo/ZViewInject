@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'injectplugin'
+apply plugin: 'injectplugin'
 android {
     compileSdkVersion 27
 

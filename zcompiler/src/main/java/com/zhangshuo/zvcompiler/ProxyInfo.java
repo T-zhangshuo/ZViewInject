@@ -52,6 +52,8 @@ final class ProxyInfo {
                 ClassName.get("com.zhangshuo.zvapi", "FindStrategy");
         final ClassName ABSTRACT_INJECT =
                 ClassName.get("com.zhangshuo.zvapi", "AbstractInjector");
+        final ClassName MODULE_R=ClassName.get(packageName,"R");
+
         final TypeName T = TypeVariableName.get("T");
 
         //生成方法
@@ -66,8 +68,8 @@ final class ProxyInfo {
         for (Map.Entry<String, ViewInfo> viewInfoEntry : idViewMap.entrySet()) {
             ViewInfo info = viewInfoEntry.getValue();
 
-            builder.addStatement("target.$L = finder.findViewById(source,$L)",
-                    info.getName(), info.getId());
+            builder.addStatement("target.$L = finder.findViewById(source,$T$L)",
+                    info.getName(), MODULE_R,info.getId().substring(1));
             //如果是点击事件，则增加点击事件
             String clickEvnentName = info.getClickEventName();
             if ("".equals(clickEvnentName) || clickEvnentName.length() == 0) continue;
